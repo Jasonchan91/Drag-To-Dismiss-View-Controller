@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EAE453A1F05C69200A2C8BC /* DragToDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAE45391F05C69200A2C8BC /* DragToDismiss.swift */; };
+		5EAE45441F05CDF200A2C8BC /* TableModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAE45431F05CDF200A2C8BC /* TableModalViewController.swift */; };
 		5EB7BF1A1F04DE6400266EDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7BF191F04DE6400266EDA /* AppDelegate.swift */; };
 		5EB7BF1C1F04DE6400266EDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7BF1B1F04DE6400266EDA /* ViewController.swift */; };
 		5EB7BF1F1F04DE6400266EDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EB7BF1D1F04DE6400266EDA /* Main.storyboard */; };
 		5EB7BF211F04DE6400266EDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EB7BF201F04DE6400266EDA /* Assets.xcassets */; };
 		5EB7BF241F04DE6400266EDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EB7BF221F04DE6400266EDA /* LaunchScreen.storyboard */; };
+		5EB7BF2C1F04DE7F00266EDA /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7BF2B1F04DE7F00266EDA /* ModalViewController.swift */; };
+		5EB7BF2E1F04E0F300266EDA /* Dismiss Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7BF2D1F04E0F300266EDA /* Dismiss Animator.swift */; };
+		5EB7BF301F04E6A900266EDA /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7BF2F1F04E6A900266EDA /* Interactor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5EAE45391F05C69200A2C8BC /* DragToDismiss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragToDismiss.swift; sourceTree = "<group>"; };
+		5EAE45431F05CDF200A2C8BC /* TableModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableModalViewController.swift; sourceTree = "<group>"; };
 		5EB7BF161F04DE6400266EDA /* Drag to Dismiss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drag to Dismiss.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB7BF191F04DE6400266EDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EB7BF1B1F04DE6400266EDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +29,9 @@
 		5EB7BF201F04DE6400266EDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EB7BF231F04DE6400266EDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EB7BF251F04DE6400266EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EB7BF2B1F04DE7F00266EDA /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		5EB7BF2D1F04E0F300266EDA /* Dismiss Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dismiss Animator.swift"; sourceTree = "<group>"; };
+		5EB7BF2F1F04E6A900266EDA /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,11 @@
 			children = (
 				5EB7BF191F04DE6400266EDA /* AppDelegate.swift */,
 				5EB7BF1B1F04DE6400266EDA /* ViewController.swift */,
+				5EB7BF2D1F04E0F300266EDA /* Dismiss Animator.swift */,
+				5EB7BF2F1F04E6A900266EDA /* Interactor.swift */,
+				5EB7BF2B1F04DE7F00266EDA /* ModalViewController.swift */,
+				5EAE45431F05CDF200A2C8BC /* TableModalViewController.swift */,
+				5EAE45391F05C69200A2C8BC /* DragToDismiss.swift */,
 				5EB7BF1D1F04DE6400266EDA /* Main.storyboard */,
 				5EB7BF201F04DE6400266EDA /* Assets.xcassets */,
 				5EB7BF221F04DE6400266EDA /* LaunchScreen.storyboard */,
@@ -137,7 +152,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EB7BF2E1F04E0F300266EDA /* Dismiss Animator.swift in Sources */,
 				5EB7BF1C1F04DE6400266EDA /* ViewController.swift in Sources */,
+				5EB7BF301F04E6A900266EDA /* Interactor.swift in Sources */,
+				5EAE45441F05CDF200A2C8BC /* TableModalViewController.swift in Sources */,
+				5EAE453A1F05C69200A2C8BC /* DragToDismiss.swift in Sources */,
+				5EB7BF2C1F04DE7F00266EDA /* ModalViewController.swift in Sources */,
 				5EB7BF1A1F04DE6400266EDA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +324,7 @@
 				5EB7BF2A1F04DE6400266EDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
