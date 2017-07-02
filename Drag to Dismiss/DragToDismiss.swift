@@ -29,6 +29,7 @@ extension DragToDismiss where Self: UIViewController {
                 if tableView.contentOffset.y <= 0 {
                     interactor.hasStarted = true
                     viewController.dismiss(animated: true, completion: nil)
+                    tableView.bounces = false
                 }
             } else {
                 interactor.hasStarted = true
@@ -41,6 +42,9 @@ extension DragToDismiss where Self: UIViewController {
             interactor.hasStarted = false
             interactor.cancel()
         case .ended:
+            if let tableView = tableView {
+                tableView.bounces = true
+            }
             interactor.hasStarted = false
             interactor.shouldFinish
                 ? interactor.finish()

@@ -14,12 +14,12 @@ class ModalViewController: UIViewController, DragToDismiss {
     fileprivate lazy var dismissButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Dismiss", for: .normal)
-        button.addTarget(self, action: #selector(dismissButtonDidTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(dismissButtonDidTap), for: .touchUpInside)
         return button
     }()
     
     fileprivate lazy var panGesture: UIPanGestureRecognizer = {
-        let gesture = UIPanGestureRecognizer(target: self, action: #selector(viewDidPanned(_:)))
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(viewDidPan(_:)))
         return gesture
     }()
 }
@@ -48,11 +48,11 @@ extension ModalViewController {
 // MARK: Action
 
 extension ModalViewController {
-    func dismissButtonDidTapped() {
+    func dismissButtonDidTap() {
         dismiss(animated: true, completion: nil)
     }
     
-    func viewDidPanned(_ sender: UIPanGestureRecognizer) {
+    func viewDidPan(_ sender: UIPanGestureRecognizer) {
         drag(sender: sender, interactor: interactor, viewController: self)
     }
 }

@@ -15,13 +15,14 @@ class TableModalViewController: UIViewController, DragToDismiss {
     fileprivate lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.bounces = false
         tableView.register(CustomCell.self, forCellReuseIdentifier: String(describing: CustomCell.self))
         return tableView
     }()
     
     fileprivate lazy var panGesture: UIPanGestureRecognizer = {
-        let gesture = UIPanGestureRecognizer(target: self, action: #selector(viewDidPanned(_:)))
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(viewDidPan(_:)))
         gesture.delegate = self
         return gesture
     }()
@@ -35,7 +36,7 @@ extension TableModalViewController {
         super.loadView()
         view.addSubview(tableView)
         tableView.addGestureRecognizer(panGesture)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Show", style: .plain, target: self, action: #selector(showButtonDidTap))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(dismissButtonDidTap))
         
     }
     
@@ -52,27 +53,32 @@ extension TableModalViewController {
 // MARK: Action
 
 extension TableModalViewController {
-    func showButtonDidTap() {
-        let viewController = ModalViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+    func dismissButtonDidTap() {
+        dismiss(animated: true, completion: nil)
         
     }
     
-    func viewDidPanned(_ sender: UIPanGestureRecognizer) {
+    func viewDidPan(_ sender: UIPanGestureRecognizer) {
         drag(sender: sender, interactor: interactor, viewController: self, tableView: tableView)
     }
 }
 
-// MARK: UITableViewDataSource
+// MARK: UITableViewDataSource, UITableViewDelegate
 
-extension TableModalViewController: UITableViewDataSource {
+extension TableModalViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CustomCell.self), for: indexPath) as? CustomCell else { return UITableViewCell() }
+        cell.textLabel?.text = "\(indexPath.row)"
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = ModalViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
@@ -85,7 +91,7 @@ extension TableModalViewController: UIGestureRecognizerDelegate {
 class CustomCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.contentView.backgroundColor = UIColor.green
+        accessoryType = .disclosureIndicator
     }
     
     required init?(coder aDecoder: NSCoder) {
